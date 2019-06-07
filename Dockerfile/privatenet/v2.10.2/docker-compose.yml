@@ -3,58 +3,70 @@ version: "3"
 services:
 
   cli0:
-    image: neo-cli:v0.3
+    image: neo-cli-prinet:v2.10.2
     container_name: cli0
     ports:
-      - "10331-10334:10331-10334"
+    - "10331-10334:10331-10334"
     networks:
-      - nodeLink
+    - nodeLink
     volumes:
-      - "/data/cli0:/home/cli/ChainPrivate"
+    - "/data/cli0/Chain:/home/cli/ChainPrivate"
+    - "/data/cli0/Index:/home/cli/IndexPrivate"
+    - "/data/cli0/ApplicationLogs:/home/cli/ApplicationLogs"
+    command: expect /home/cli/scripts/run.sh 0
     stdin_open: true
     tty: true
 
   cli1:
-    image: neo-cli:v0.3
+    image: neo-cli-prinet:v2.10.2
     container_name: cli1
     ports:
-      - "20331-20334:10331-10334"
+    - "20331-20334:10331-10334"
     networks:
-      - nodeLink
+    - nodeLink
     volumes:
-      - "/data/cli1:/home/cli/ChainPrivate"
+    - "/data/cli1/Chain:/home/cli/ChainPrivate"
+    - "/data/cli1/Index:/home/cli/IndexPrivate"
+    - "/data/cli1/ApplicationLogs:/home/cli/ApplicationLogs"
+    command: expect /home/cli/scripts/run.sh 1
     stdin_open: true
     tty: true
     depends_on:
-      - cli0
+    - cli0
 
   cli2:
-    image: neo-cli:v0.3
+    image: neo-cli-prinet:v2.10.2
     container_name: cli2
     ports:
-      - "30331-30334:10331-10334"
+    - "30331-30334:10331-10334"
     networks:
-      - nodeLink
+    - nodeLink
     volumes:
-      - "/data/cli2:/home/cli/ChainPrivate"
+    - "/data/cli2/Chain:/home/cli/ChainPrivate"
+    - "/data/cli2/Index:/home/cli/IndexPrivate"
+    - "/data/cli2/ApplicationLogs:/home/cli/ApplicationLogs"
+    command: expect /home/cli/scripts/run.sh 2
     stdin_open: true
     tty: true
     depends_on:
-      - cli1
+    - cli1
 
   cli3:
-    image: neo-cli:v0.3
+    image: neo-cli-prinet:v2.10.2
     container_name: cli3
     ports:
-      - "40331-40334:10331-10334"
+    - "40331-40334:10331-10334"
     networks:
-      - nodeLink
+    - nodeLink
     volumes:
-      - "/data/cli3:/home/cli/ChainPrivate"
+    - "/data/cli3/Chain:/home/cli/ChainPrivate"
+    - "/data/cli3/Index:/home/cli/IndexPrivate"
+    - "/data/cli3/ApplicationLogs:/home/cli/ApplicationLogs"
+    command: expect /home/cli/scripts/run.sh 3
     stdin_open: true
     tty: true
     depends_on:
-      - cli2
+    - cli2
 
 networks:
   nodeLink:
