@@ -2,9 +2,9 @@
 set no [lindex $argv 0]
 spawn dotnet neo-cli.dll --rpc
 expect "neo>"
-send "open wallet ./wallets/${no}.js6on"
+send "open wallet ./wallets/${no}.json\r"
 expect "password:"
-send "123456"
+send "123456\r"
 expect "neo>"
-send "start consensus"
+send "start consensus\r"
 interact

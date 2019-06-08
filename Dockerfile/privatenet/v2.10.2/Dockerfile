@@ -29,7 +29,7 @@ WORKDIR /home/cli
 # Copy config file
 ADD wallets /home/cli/wallets
 ADD scripts /home/cli/scripts
-ADD plugins /home/cli/Plugins
+# ADD plugins /home/cli/Plugins
 
 COPY Dockerfile/privatenet/v2.10.2/config.json /home/cli/config.json
 COPY Dockerfile/privatenet/v2.10.2/protocol.json /home/cli/protocol.json

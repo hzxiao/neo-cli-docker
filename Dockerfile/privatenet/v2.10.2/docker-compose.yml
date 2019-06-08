@@ -13,7 +13,7 @@ services:
     - "/data/cli0/Chain:/home/cli/ChainPrivate"
     - "/data/cli0/Index:/home/cli/IndexPrivate"
     - "/data/cli0/ApplicationLogs:/home/cli/ApplicationLogs"
-    command: expect /home/cli/scripts/run.sh 0
+    command: cd /home/cli && expect /home/cli/scripts/run.sh 0
     stdin_open: true
     tty: true
 
@@ -28,7 +28,7 @@ services:
     - "/data/cli1/Chain:/home/cli/ChainPrivate"
     - "/data/cli1/Index:/home/cli/IndexPrivate"
     - "/data/cli1/ApplicationLogs:/home/cli/ApplicationLogs"
-    command: expect /home/cli/scripts/run.sh 1
+    command: cd /home/cli && expect /home/cli/scripts/run.sh 1
     stdin_open: true
     tty: true
     depends_on:
@@ -45,7 +45,7 @@ services:
     - "/data/cli2/Chain:/home/cli/ChainPrivate"
     - "/data/cli2/Index:/home/cli/IndexPrivate"
     - "/data/cli2/ApplicationLogs:/home/cli/ApplicationLogs"
-    command: expect /home/cli/scripts/run.sh 2
+    command: cd /home/cli && expect /home/cli/scripts/run.sh 2
     stdin_open: true
     tty: true
     depends_on:
@@ -62,7 +62,7 @@ services:
     - "/data/cli3/Chain:/home/cli/ChainPrivate"
     - "/data/cli3/Index:/home/cli/IndexPrivate"
     - "/data/cli3/ApplicationLogs:/home/cli/ApplicationLogs"
-    command: expect /home/cli/scripts/run.sh 3
+    command: cd /home/cli && expect /home/cli/scripts/run.sh 3
     stdin_open: true
     tty: true
     depends_on:
