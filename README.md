@@ -70,5 +70,45 @@ Testnet Cli RPC
 
 http://127.0.0.1:20332
 
+for Private net
+
+## Setp 1
+
+Run Shell to Buld Image
+
+```shell
+git clone https://github.com/hzxiao/neo-cli-docker.git
+
+cd neo-cli-docker
+
+docker build -t neo-cli-prinet:v2.10.2 -f Dockerfile/privatenet/v2.10.2/Dockerfile .
+```
+
+## Setp 2
+
+Run Shell to Start neo-cli
+
+```shell
+cd Dockerfile/privatenet/v2.10.2/
+
+docker-compose up -d
+```
+
+## Step 3
+
+Private net CLI RPC
+
+*. http://127.0.0.1:10332
+*. http://127.0.0.1:20332
+*. http://127.0.0.1:30332
+*. http://127.0.0.1:40332
+
+Private net CLI P@P
+
+*. http://127.0.0.1:10333
+*. http://127.0.0.1:20333
+*. http://127.0.0.1:30333
+*. http://127.0.0.1:40333
+
 ## Setp X
 [Construct PrivateNet](https://github.com/NewEconoLab/Docs/blob/master/study/DevOps/DockerNeoPrivatenet.md)
