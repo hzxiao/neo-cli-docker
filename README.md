@@ -102,5 +102,7 @@ http://127.0.0.1:20332
   - http://127.0.0.1:30333
   -  http://127.0.0.1:40333
 
-## Other
-[Construct PrivateNet](https://github.com/NewEconoLab/Docs/blob/master/study/DevOps/DockerNeoPrivatenet.md)
+- **Get Neo From Private net**
+
+  [See Here](docs/get_neo_prinet.md)
+
