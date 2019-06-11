@@ -61,7 +61,7 @@ services:
     - cli2
 
   neo-scan-privatenet:
-    image: neo-scan-privatenet
+    image: kiang/neo-scan-privatenet
     container_name: neo-scan-privatenet
     ports:
     - 4000:4000
