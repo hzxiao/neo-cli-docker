@@ -1,0 +1,35 @@
+version: "3"
+services:
+  neo-scan:
+    image: slipoh/neo-scan
+    container_name: neo-scan-prinet
+    ports:
+    - 4000:4000
+    links:
+    - postgresql:postgres
+    - cli0:10332
+    - cli1:10332
+    - cli2:10332
+    - cli3:10332
+    - cli0:10333
+    - cli1:10333
+    - cli2:10333
+    - cli3:10333
+    depends_on:
+    - postgresql
+    - cli0
+    - cli1
+    - cli2
+    - cli3
+  environment:
+    NEO_SEED_1: http://cli0:10332
+    NEO_SEED_2: http://cli1:10332
+    NEO_SEED_3: http://cli2:10332
+    NEO_SEED_4: http://cli3:10332
+  postgresql:
+    image: postgres:10.1
+    ports:
+    - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
