@@ -13,8 +13,6 @@ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/dock
 sudo yum install docker-ce
 ```
 
-
-
 ## Download source
 
 ```shell
@@ -23,7 +21,20 @@ git clone https://github.com/hzxiao/neo-cli-docker.git
 cd neo-cli-docker
 ```
 
+## Quick Start
 
+Run with builded docker images
+
+```shell
+cd quickstart
+
+docker-compose up -d
+```
+
+wait few minute access `localhost:4000`  you should see neo-scan with some blocks.
+
+
+if you want to build your own image, follow below
 
 ## Build docker images
 

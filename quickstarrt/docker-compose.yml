@@ -3,7 +3,7 @@ version: "3"
 services:
 
   cli0:
-    image: neo-cli-prinet:v2.10.2
+    image: kiang/neo-cli-privatenet:v2.10.2
     container_name: cli0
     ports:
     - "10331-10334:10331-10334"
@@ -16,7 +16,7 @@ services:
     tty: true
 
   cli1:
-    image: neo-cli-prinet:v2.10.2
+    image: kiang/neo-cli-privatenet:v2.10.2
     container_name: cli1
     ports:
     - "20331-20334:10331-10334"
@@ -31,7 +31,7 @@ services:
     - cli0
 
   cli2:
-    image: neo-cli-prinet:v2.10.2
+    image: kiang/neo-cli-privatenet:v2.10.2
     container_name: cli2
     ports:
     - "30331-30334:10331-10334"
@@ -46,7 +46,7 @@ services:
     - cli1
 
   cli3:
-    image: neo-cli-prinet:v2.10.2
+    image: kiang/neo-cli-privatenet:v2.10.2
     container_name: cli3
     ports:
     - "40331-40334:10331-10334"
@@ -60,6 +60,38 @@ services:
     depends_on:
     - cli2
 
+  neo-scan-privatenet:
+    image: neo-scan-privatenet
+    container_name: neo-scan-privatenet
+    ports:
+    - 4000:4000
+    networks:
+    - nodeLink
+    links:
+    - postgres
+    - cli0
+    - cli1
+    - cli2
+    - cli3
+    depends_on:
+    - postgres
+    - cli0
+    - cli1
+    - cli2
+    - cli3
+
+  postgres:
+    image: postgres:10.1
+    container_name: postgres
+    networks:
+    - nodeLink
+    ports:
+    - 5432:5432
+    environment:
+     POSTGRES_USER: postgres
+     POSTGRES_PASSWORD: postgres
+
 networks:
   nodeLink:
     driver: bridge
+

@@ -1,8 +1,8 @@
 {
   "ApplicationConfiguration": {
     "Paths": {
-      "Chain": "ChainPrivate",
-      "Index": "IndexPrivate"
+      "Chain": "/neo/data/Chain_{0}",
+      "Index": "/neo/data/Index_{0}"
     },
     "P2P": {
       "Port": 10333,

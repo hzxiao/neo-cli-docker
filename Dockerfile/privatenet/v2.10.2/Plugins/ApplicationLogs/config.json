@@ -1,0 +1,5 @@
+﻿{
+  "PluginConfiguration": {
+    "Path": "/neo/data/ApplicationLogs_{0}"
+  }
+}

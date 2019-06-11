@@ -1,6 +1,6 @@
 #!/usr/bin/expect -f
 set no [lindex $argv 0]
-spawn dotnet neo-cli.dll --rpc
+spawn dotnet neo-cli.dll --rpc --log
 expect "neo>"
 send "open wallet ./wallets/${no}.json\r"
 expect "password:"
